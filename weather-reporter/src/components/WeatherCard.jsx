@@ -1,12 +1,13 @@
-import {
-    LocationOn as LocationIcon,
-    WbSunny as SunnyIcon,
-    Cloud as CloudyIcon,
-    Thunderstorm as StormIcon,
-    AcUnit as SnowIcon,
-    Grain as RainIcon,
-    Foggy as FogIcon,
-  } from '@mui/icons-material';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import CloudIcon from '@mui/icons-material/Cloud';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import GrainIcon from '@mui/icons-material/Grain';
+import WbCloudyIcon from '@mui/icons-material/WbCloudy';
+import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
+  
+
   
   export default function WeatherCard({ weather }) {
     if (!weather) return null;
@@ -25,19 +26,19 @@ import {
         const c = condition.toLowerCase();
       
         if (c.includes('thunder')) {
-          return <StormIcon style={{ fontSize: 64 }} />;
+          return <ThunderstormIcon style={{ fontSize: 64 }} />;
         } else if (c.includes('fog')) {
-          return <FogIcon style={{ fontSize: 64 }} />;
+          return <WbCloudyIcon style={{ fontSize: 64 }} />;
         } else if (c.includes('snow') || c.includes('ice')) {
-          return <SnowIcon style={{ fontSize: 64 }} />;
+          return <AcUnitIcon style={{ fontSize: 64 }} />;
         } else if (c.includes('rain') || c.includes('drizzle')) {
-          return <RainIcon style={{ fontSize: 64 }} />;
+          return <GrainIcon style={{ fontSize: 64 }} />;
         } else if (c.includes('cloud')) {
-          return <CloudyIcon style={{ fontSize: 64 }} />;
+          return <CloudIcon style={{ fontSize: 64 }} />;
         } else if (c.includes('sunny') || c.includes('clear')) {
-          return <SunnyIcon style={{ fontSize: 64 }} />;
+          return <WbSunnyIcon style={{ fontSize: 64 }} />;
         } else {
-          return <SunnyIcon style={{ fontSize: 64 }} />; // default fallback
+          return <WbSunnyIcon style={{ fontSize: 64 }} />; // default fallback
         }
       };
       
@@ -48,7 +49,7 @@ import {
         <div>
           <div className="flex items-center mb-2">
             <span className="bg-purple-600 text-xs px-3 py-1 rounded-full mr-2">
-              <LocationIcon style={{ fontSize: 16, marginRight: 4, marginBottom: 3 }} />
+              <LocationOnIcon style={{ fontSize: 16, marginRight: 4, marginBottom: 3 }} />
               {location.name}
             </span>
           </div>
