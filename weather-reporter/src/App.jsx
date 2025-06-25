@@ -23,10 +23,10 @@ function App() {
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <div className="flex flex-col items-center">
           <WeatherCard weather={weather} />
           <WeatherDetails weather={weather} />
-        </>
+        </div>
       )}
     </div>
   );

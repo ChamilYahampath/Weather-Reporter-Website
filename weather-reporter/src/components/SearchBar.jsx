@@ -15,7 +15,7 @@ export default function SearchBar({ onSearch }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center w-[280px] bg-[#232323] rounded-2xl px-4 py-2 mb-8 ml-150"
+      className="flex items-center w-[280px] bg-[#232323] rounded-2xl px-4 py-2 mb-8 ml-165"
     >
       <SearchIcon className="text-white mr-3" />
       <input

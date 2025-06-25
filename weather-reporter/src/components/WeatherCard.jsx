@@ -12,7 +12,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
   export default function WeatherCard({ weather }) {
     if (!weather) return null;
   
-    const { location, current } = weather;
+    const { location, current, forecast } = weather;
   
     // Get the date and day
     const dateObj = new Date(location.localtime);
@@ -20,6 +20,10 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
     const formattedDate = dateObj.toLocaleDateString('en-US', options);
     const day = formattedDate.split(',')[0];
     const date = formattedDate.replace(`${day}, `, '');
+
+    // Get high and low temp
+    const high = forecast?.forecastday?.[0]?.day?.maxtemp_c ?? current.temp_c + 1;
+    const low = forecast?.forecastday?.[0]?.day?.mintemp_c ?? current.temp_c - 1;
   
     // Choose icon based on condition text
     const getWeatherIcon = (condition) => {
@@ -61,7 +65,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
           </div>
           <div className="text-4xl font-bold mt-4">{current.temp_c}°C</div>
           <div className="text-sm text-gray-400">
-            High: {current.temp_c + 1} Low: {current.temp_c - 1}
+            High: {high}°C Low: {low}°C
           </div>
         </div>
         <div className="flex flex-col items-center">
